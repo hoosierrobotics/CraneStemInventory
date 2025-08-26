@@ -1,6 +1,37 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+  /* 1) Most common: images, picture/source sets, background images, and links */
+  img[alt*="navsea" i],
+  img[src*="navsea" i],
+  picture source[srcset*="navsea" i],
+  a[href*="navsea" i],
+  [style*="navsea" i],
+  /* inline SVG variants */
+  svg[aria-label*="navsea" i],
+  svg[title*="navsea" i],
+  [role="img"][aria-label*="navsea" i],
+  /* if it’s embedded from another site */
+  iframe[src*="navsea" i] {
+    display: none !important;
+    background-image: none !important;
+  }
+
+  /* 2) Hide typical left-nav logos even if they aren’t named “navsea” */
+  aside img,
+  nav img,
+  .sidebar img,
+  .v-navigation-drawer img {
+    display: none !important;
+  }
+
+  /* 3) Last resort: hide any element that DIRECTLY contains an img whose URL includes “navsea” */
+  /* :has() works in Chrome/Safari/Edge; if your browser ignores it, no harm. */
+  *:has(> img[src*="navsea" i]) {
+    display: none !important;
+  }
+</style>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +50,8 @@
     <link rel="stylesheet" crossorigin href="/assets/index-Khb7D--5.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"></div>
+
   </body>
 </html>
 <style>
@@ -29,3 +61,4 @@
     overflow-x: hidden;
   }
 </style>
+
